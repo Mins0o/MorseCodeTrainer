@@ -52,7 +52,7 @@ namespace MorseCodeTrainer
         private void updateSpeedIndi(object sender, RoutedPropertyChangedEventArgs<double> e)
         {
             int speed = (Int32)speed_scroll.Value;
-            speed_indicator.Text = ""+speed;
+            speed_indicator.Text = "Playback speed : "+speed;
         }
 
         private void Save(object sender, RoutedEventArgs e)

@@ -4,23 +4,27 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="MainWindow" Height="400" Width="810">
     <Grid>
-        <TextBox Name="user_input" HorizontalAlignment="Left" Height="239" Margin="38,38,0,0" TextWrapping="Wrap" Text="Don't stop me now" VerticalAlignment="Top" Width="528"/>
-        <Button Name="play_button" Content="Play" HorizontalAlignment="Left" Height="50" Margin="587,38,0,0" VerticalAlignment="Top" Width="180" Click="play"/>
-        <Button Content="Save" HorizontalAlignment="Left" Height="50" Margin="587,111,0,0" VerticalAlignment="Top" Width="180" Click="Save"/>
-        <Button Content="Input Mode" HorizontalAlignment="Left" Height="50" Margin="39,320,0,0" VerticalAlignment="Top" Width="267"/>
-        <Button Content="Stop" HorizontalAlignment="Left" Height="50" Margin="446,319,0,0" VerticalAlignment="Top" Width="121" Click="stopPlaying"/>
-        <TextBlock Name="speed_indicator" HorizontalAlignment="Left" Margin="671,175,0,0" TextWrapping="Wrap" Text="5" VerticalAlignment="Top" TextAlignment="Center" Width="14"/>
-        <ScrollBar Name="speed_scroll" HorizontalAlignment="Left" Margin="667,122,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.5,0.5" Height="165" Maximum="10" Minimum="1" SmallChange="1" Value="5" ValueChanged="updateSpeedIndi">
-            <ScrollBar.RenderTransform>
-                <TransformGroup>
-                    <ScaleTransform/>
-                    <SkewTransform/>
-                    <RotateTransform Angle="270"/>
-                    <TranslateTransform/>
-                </TransformGroup>
-            </ScrollBar.RenderTransform>
-        </ScrollBar>
+        <TextBox Name="user_input" HorizontalAlignment="Left" Height="195" Margin="38,31,0,0" TextWrapping="Wrap" Text="Don't stop me now" VerticalAlignment="Top" Width="528"/>
+        <Grid Margin="590,10,10,130">
+            <Button x:Name="play_button" Content="Play" HorizontalAlignment="Left" Height="50" Margin="0,56,0,0" VerticalAlignment="Top" Width="98" Click="play"/>
+            <Button Content="Save" HorizontalAlignment="Left" Height="50" Margin="0,111,0,0" VerticalAlignment="Top" Width="180" Click="Save"/>
+            <Button Content="Input Mode" HorizontalAlignment="Left" Height="50" Margin="0,166,0,0" VerticalAlignment="Top" Width="180"/>
+            <Button Content="Stop" HorizontalAlignment="Left" Height="50" Margin="103,56,0,0" VerticalAlignment="Top" Width="77" Click="stopPlaying"/>
+            <TextBlock x:Name="speed_indicator" HorizontalAlignment="Left" Margin="18,0,0,0" TextWrapping="Wrap" Text="Playback speed: 5" VerticalAlignment="Top" TextAlignment="Center" Width="144"/>
+            <ScrollBar x:Name="speed_scroll" HorizontalAlignment="Left" Margin="82,-56,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.5,0.5" Height="180" Maximum="10" Minimum="1" SmallChange="1" Value="5.5" ValueChanged="updateSpeedIndi" Width="16">
+                <ScrollBar.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform/>
+                        <SkewTransform/>
+                        <RotateTransform Angle="270"/>
+                        <TranslateTransform/>
+                    </TransformGroup>
+                </ScrollBar.RenderTransform>
+            </ScrollBar>
+        </Grid>
+        <TextBlock HorizontalAlignment="Left" Margin="39,10,0,0" TextWrapping="Wrap" Text="Text" VerticalAlignment="Top"/>
+        <ListBox HorizontalAlignment="Left" Height="117" Margin="39,239,0,0" VerticalAlignment="Top" Width="527"/>
     </Grid>
 </Window>
