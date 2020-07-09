@@ -14,6 +14,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using System.ComponentModel;
 using NAudio;
 using NAudio.Wave;
 using NAudio.Wave.SampleProviders;
@@ -28,38 +29,25 @@ namespace MorseCodeTrainer
         public MainWindow()
         {
             InitializeComponent();
-        }
 
+        }
 
         private void play(object sender, RoutedEventArgs e)
         {
             play_button.IsEnabled = false;
-            Morse m = new Morse(user_input.Text);
+
             int speed = (Int32)speed_scroll.Value;
+            Morse m = new Morse(user_input.Text);
             BeepGenerator bg = new BeepGenerator(speed);
             var theCode = bg.stringInput(m.translateToMorse());
-            Thread t = new Thread(() => playUnderNewThread(1, theCode));
-            t.Start();
+            var og = new OutputGenerator(theCode);
+            og.play(play_button);
         }
 
         private void updateSpeedIndi(object sender, RoutedPropertyChangedEventArgs<double> e)
         {
             int speed = (Int32)speed_scroll.Value;
             speed_indicator.Text = ""+speed;
-        }
-
-        private void playUnderNewThread(int deviceNum,ISampleProvider theCode)
-        {
-            using (var wo = new WaveOutEvent() { DeviceNumber = deviceNum })
-            {
-                wo.Init(theCode);
-                wo.Play();
-                while (wo.PlaybackState == PlaybackState.Playing)
-                {
-                    Thread.Sleep(100);
-                }
-            }
-
         }
     }
 
