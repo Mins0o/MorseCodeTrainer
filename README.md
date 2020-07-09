@@ -9,4 +9,4 @@ These are the features:
   
 To compile the source code, you will need to download and install [NAudio](https://github.com/naudio/NAudio) from Nuget Manager.  
   
-More docuentation of the Source code will be updated soon.  
+More docuentation of the source code will be updated soon.  
