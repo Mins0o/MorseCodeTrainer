@@ -18,6 +18,7 @@ using System.ComponentModel;
 using NAudio;
 using NAudio.Wave;
 using NAudio.Wave.SampleProviders;
+using Microsoft.Win32;
 
 namespace MorseCodeTrainer
 {
@@ -26,6 +27,7 @@ namespace MorseCodeTrainer
     /// </summary>
     public partial class MainWindow : Window
     {
+        private OutputGenerator og;
         public MainWindow()
         {
             InitializeComponent();
@@ -40,14 +42,28 @@ namespace MorseCodeTrainer
             Morse m = new Morse(user_input.Text);
             BeepGenerator bg = new BeepGenerator(speed);
             var theCode = bg.stringInput(m.translateToMorse());
-            var og = new OutputGenerator(theCode);
+            this.og = new OutputGenerator(theCode);
             og.play(play_button);
+        }private void stopPlaying(object sender, RoutedEventArgs e)
+        {
+            og.stop();
         }
 
         private void updateSpeedIndi(object sender, RoutedPropertyChangedEventArgs<double> e)
         {
             int speed = (Int32)speed_scroll.Value;
             speed_indicator.Text = ""+speed;
+        }
+
+        private void Save(object sender, RoutedEventArgs e)
+        {
+            string title = user_input.Text;
+            int speed = (Int32)speed_scroll.Value;
+            Morse m = new Morse(user_input.Text);
+            BeepGenerator bg = new BeepGenerator(speed);
+            var theCode = bg.stringInput(m.translateToMorse());
+            var og = new OutputGenerator(theCode);
+            og.save(title);
         }
     }
 

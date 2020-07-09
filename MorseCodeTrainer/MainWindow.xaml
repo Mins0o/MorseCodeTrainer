@@ -8,9 +8,9 @@
     <Grid>
         <TextBox Name="user_input" HorizontalAlignment="Left" Height="239" Margin="38,38,0,0" TextWrapping="Wrap" Text="Don't stop me now" VerticalAlignment="Top" Width="528"/>
         <Button Name="play_button" Content="Play" HorizontalAlignment="Left" Height="50" Margin="587,38,0,0" VerticalAlignment="Top" Width="180" Click="play"/>
-        <Button Content="Save" HorizontalAlignment="Left" Height="50" Margin="587,111,0,0" VerticalAlignment="Top" Width="180"/>
+        <Button Content="Save" HorizontalAlignment="Left" Height="50" Margin="587,111,0,0" VerticalAlignment="Top" Width="180" Click="Save"/>
         <Button Content="Input Mode" HorizontalAlignment="Left" Height="50" Margin="39,320,0,0" VerticalAlignment="Top" Width="267"/>
-        <Button Content="Stop" HorizontalAlignment="Left" Height="50" Margin="446,320,0,0" VerticalAlignment="Top" Width="121" />
+        <Button Content="Stop" HorizontalAlignment="Left" Height="50" Margin="446,319,0,0" VerticalAlignment="Top" Width="121" Click="stopPlaying"/>
         <TextBlock Name="speed_indicator" HorizontalAlignment="Left" Margin="671,175,0,0" TextWrapping="Wrap" Text="5" VerticalAlignment="Top" TextAlignment="Center" Width="14"/>
         <ScrollBar Name="speed_scroll" HorizontalAlignment="Left" Margin="667,122,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.5,0.5" Height="165" Maximum="10" Minimum="1" SmallChange="1" Value="5" ValueChanged="updateSpeedIndi">
             <ScrollBar.RenderTransform>
