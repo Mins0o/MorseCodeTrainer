@@ -19,6 +19,7 @@ using NAudio;
 using NAudio.Wave;
 using NAudio.Wave.SampleProviders;
 using Microsoft.Win32;
+using System.Diagnostics;
 
 namespace MorseCodeTrainer
 {
@@ -28,6 +29,9 @@ namespace MorseCodeTrainer
     public partial class MainWindow : Window
     {
         private OutputGenerator og;
+        private bool inputModeBool = false;
+        private Stopwatch timeChecker = new Stopwatch();
+        private UpDownToMorse toMorse;
         public MainWindow()
         {
             InitializeComponent();
@@ -42,21 +46,24 @@ namespace MorseCodeTrainer
                 Console.WriteLine("{0}: {1}", n, caps.ProductName);
             }
             device_list.SelectedIndex = 0;
+            
         }
 
         private void play(object sender, RoutedEventArgs e)
         {
             play_button.IsEnabled = false;
+            CloseInputMode();
 
             int deviceNumber = device_list.SelectedIndex;
             System.Diagnostics.Debug.Print(deviceNumber.ToString());
             int speed = (Int32)speed_scroll.Value;
-            Morse m = new Morse(user_input.Text);
+            MorseToSound m = new MorseToSound(user_input.Text);
             BeepGenerator bg = new BeepGenerator(speed);
             var theCode = bg.stringInput(m.translateToMorse());
             this.og = new OutputGenerator(theCode,deviceNumber);
             og.play(play_button);
-        }private void stopPlaying(object sender, RoutedEventArgs e)
+        }
+        private void stopPlaying(object sender, RoutedEventArgs e)
         {
             og.stop();
         }
@@ -69,13 +76,83 @@ namespace MorseCodeTrainer
 
         private void Save(object sender, RoutedEventArgs e)
         {
+            CloseInputMode();
             string title = user_input.Text;
             int speed = (Int32)speed_scroll.Value;
-            Morse m = new Morse(user_input.Text);
+            MorseToSound m = new MorseToSound(user_input.Text);
             BeepGenerator bg = new BeepGenerator(speed);
             var theCode = bg.stringInput(m.translateToMorse());
             var og = new OutputGenerator(theCode);
             og.save(title);
+        }
+
+        private void InputMode(object sender, RoutedEventArgs e)
+        {
+            if (inputModeBool)
+            {
+                CloseInputMode();                
+            }
+            else
+            {
+                OpenInputMode();
+            }
+            this.inputModeBool = !inputModeBool;
+        }
+        private void OpenInputMode()
+        {
+            alpha_button.Visibility=Visibility.Visible;
+            kor_button.Visibility = Visibility.Visible;
+            toMorse = new UpDownToMorse();
+            timeChecker.Stop();
+            timeChecker.Reset();
+        }
+        private void CloseInputMode()
+        {
+            alpha_button.Visibility = Visibility.Hidden;
+            kor_button.Visibility = Visibility.Hidden;
+            try
+            {
+                user_input.Text = toMorse.TranslatedText();
+            }
+            catch
+            {
+                System.Windows.MessageBox.Show("Cannot convert this beep sequence to Morse code");
+            }
+        }
+        private void TimingStarts(char lang)
+        {
+            timeChecker.Stop();
+            long offTime = timeChecker.ElapsedMilliseconds;
+            toMorse.AddToBuffer(offTime, 'n',lang);
+            timeChecker.Reset();
+            timeChecker.Start();
+        }
+        private void TimingEnds(char lang)
+        {
+            timeChecker.Stop();
+            long holdTime = timeChecker.ElapsedMilliseconds;
+            toMorse.AddToBuffer(holdTime,'p',lang);
+            timeChecker.Reset();
+            timeChecker.Start();
+        }
+        private void AlphaUp(object sender, MouseButtonEventArgs e)
+        {
+            TimingEnds('a');
+        }
+
+        private void AlphaDown(object sender, MouseButtonEventArgs e)
+        {
+            TimingStarts('a');
+        }
+
+        private void korDown(object sender, MouseButtonEventArgs e)
+        {
+            TimingStarts('k');
+        }
+
+        private void korUp(object sender, MouseButtonEventArgs e)
+        {
+            TimingEnds('k');
         }
     }
 
