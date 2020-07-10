@@ -31,18 +31,34 @@ namespace MorseCodeTrainer
         public MainWindow()
         {
             InitializeComponent();
-
+            for (int n = 0; n < WaveOut.DeviceCount; n++)
+            {
+                var caps = WaveOut.GetCapabilities(n);
+                TextBlock deviceItem = new TextBlock()
+                {
+                    Text = caps.ProductName
+                };
+                TextBlock deviceItem2 = new TextBlock()
+                {
+                    Text = caps.ProductName
+                };
+                device_stack.Children.Add(deviceItem);
+                device_list.Items.Add(deviceItem2);
+                Console.WriteLine("{0}: {1}", n, caps.ProductName);
+            }
         }
 
         private void play(object sender, RoutedEventArgs e)
         {
             play_button.IsEnabled = false;
 
+            int deviceNumber = device_list.SelectedIndex;
+            System.Diagnostics.Debug.Print(deviceNumber.ToString());
             int speed = (Int32)speed_scroll.Value;
             Morse m = new Morse(user_input.Text);
             BeepGenerator bg = new BeepGenerator(speed);
             var theCode = bg.stringInput(m.translateToMorse());
-            this.og = new OutputGenerator(theCode);
+            this.og = new OutputGenerator(theCode,deviceNumber);
             og.play(play_button);
         }private void stopPlaying(object sender, RoutedEventArgs e)
         {

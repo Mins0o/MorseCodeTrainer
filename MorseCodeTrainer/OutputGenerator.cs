@@ -17,9 +17,19 @@ namespace MorseCodeTrainer
     {
         BackgroundWorker worker;
         private ISampleProvider thingToOutPut;
-        public OutputGenerator(ISampleProvider theCode)
+        private int deviceNumber;
+        public OutputGenerator(ISampleProvider theCode,int deviceNumber = 0)
         {
             thingToOutPut = theCode;
+            if (deviceNumber < 0)
+            {
+                deviceNumber = 0;
+            }
+            else
+            {
+                this.deviceNumber = deviceNumber;
+            }
+            
         }
         public delegate void PlayEndedEventHandler(object source, EventArgs args);
         public event PlayEndedEventHandler PlayEnded;
@@ -32,7 +42,7 @@ namespace MorseCodeTrainer
             worker = new BackgroundWorker();
             worker.DoWork += (s, ea) =>
             {
-                using (var wo = new WaveOutEvent() { DeviceNumber = 1 })
+                using (var wo = new WaveOutEvent() { DeviceNumber = deviceNumber })
                 {
                     wo.Init(thingToOutPut);
                     wo.Play();
