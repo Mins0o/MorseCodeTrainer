@@ -38,14 +38,10 @@ namespace MorseCodeTrainer
                 {
                     Text = caps.ProductName
                 };
-                TextBlock deviceItem2 = new TextBlock()
-                {
-                    Text = caps.ProductName
-                };
-                device_stack.Children.Add(deviceItem);
-                device_list.Items.Add(deviceItem2);
+                device_list.Items.Add(deviceItem);
                 Console.WriteLine("{0}: {1}", n, caps.ProductName);
             }
+            device_list.SelectedIndex = 0;
         }
 
         private void play(object sender, RoutedEventArgs e)

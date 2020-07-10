@@ -4,10 +4,10 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         mc:Ignorable="d"
-        Title="MainWindow" Height="400" Width="810">
-    <Grid>
-        <TextBox Name="user_input" HorizontalAlignment="Left" Height="195" Margin="38,31,0,0" TextWrapping="Wrap" Text="Don't stop me now" VerticalAlignment="Top" Width="528"/>
-        <Grid Margin="590,10,10,130">
+        Title="MainWindow" Height="414.097" Width="504.185" MinHeight="414.097" MinWidth="504.185" MaxHeight="414.097" MaxWidth="504.185">
+    <Grid Margin="0,0,2,0">
+        <TextBox Name="user_input" HorizontalAlignment="Left" Height="195" Margin="19,31,0,0" TextWrapping="Wrap" Text="Don't stop me now" VerticalAlignment="Top" Width="257"/>
+        <Grid Margin="290,10,10,130">
             <Button x:Name="play_button" Content="Play" HorizontalAlignment="Left" Height="50" Margin="0,56,0,0" VerticalAlignment="Top" Width="98" Click="play"/>
             <Button Content="Save" HorizontalAlignment="Left" Height="50" Margin="0,111,0,0" VerticalAlignment="Top" Width="180" Click="Save"/>
             <Button Content="Input Mode" HorizontalAlignment="Left" Height="50" Margin="0,166,0,0" VerticalAlignment="Top" Width="180"/>
@@ -24,8 +24,7 @@
                 </ScrollBar.RenderTransform>
             </ScrollBar>
         </Grid>
-        <TextBlock HorizontalAlignment="Left" Margin="39,10,0,0" TextWrapping="Wrap" Text="Text" VerticalAlignment="Top"/>
-        <StackPanel Name="device_stack" HorizontalAlignment="Left" Height="117" Margin="39,239,0,0" VerticalAlignment="Top" Width="256"/>
-        <ListBox Name="device_list" HorizontalAlignment="Left" Height="117" Margin="310,239,0,0" VerticalAlignment="Top" Width="256"/>
+        <TextBlock HorizontalAlignment="Left" Margin="20,10,0,0" TextWrapping="Wrap" Text="Text" VerticalAlignment="Top"/>
+        <ListBox Name="device_list" HorizontalAlignment="Left" Height="117" Margin="20,242,0,0" VerticalAlignment="Top" Width="256"/>
     </Grid>
 </Window>
