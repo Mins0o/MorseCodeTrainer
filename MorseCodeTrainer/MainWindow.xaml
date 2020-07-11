@@ -4,7 +4,7 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         mc:Ignorable="d"
-        Title="MainWindow" Height="414.097" Width="504.185" MinHeight="414.097" MinWidth="504.185" MaxHeight="414.097" MaxWidth="504.185">
+        Title="MainWindow" Height="414.097" Width="504.185" MinHeight="414.097" MinWidth="504.185" MaxHeight="414.097" MaxWidth="504.185" PreviewKeyDown="KeyboardDown" PreviewKeyUp="KeyboardUp">
     <Grid Margin="0,0,2,0">
         <TextBox Name="user_input" HorizontalAlignment="Left" Height="195" Margin="19,31,0,0" TextWrapping="Wrap" Text="Don't stop me now" VerticalAlignment="Top" Width="257"/>
         <Grid Margin="290,10,10,130">

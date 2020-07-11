@@ -32,6 +32,8 @@ namespace MorseCodeTrainer
         private bool inputModeBool = false;
         private Stopwatch timeChecker = new Stopwatch();
         private UpDownToMorse toMorse;
+        private Boolean aPressed = false;
+        private Boolean kPressed = false;
         public MainWindow()
         {
             InitializeComponent();
@@ -137,22 +139,88 @@ namespace MorseCodeTrainer
         }
         private void AlphaUp(object sender, MouseButtonEventArgs e)
         {
-            TimingEnds('a');
+            if (aPressed)
+            {
+                TimingEnds('a');
+                aPressed = !aPressed;
+            }   
         }
 
         private void AlphaDown(object sender, MouseButtonEventArgs e)
         {
-            TimingStarts('a');
+            if (!aPressed)
+            {
+                TimingStarts('a');
+                aPressed = !aPressed;
+            }
         }
 
         private void korDown(object sender, MouseButtonEventArgs e)
         {
-            TimingStarts('k');
+            if (!kPressed)
+            {
+                TimingStarts('k');
+                kPressed = !kPressed;
+            }
         }
 
         private void korUp(object sender, MouseButtonEventArgs e)
         {
-            TimingEnds('k');
+            if(kPressed)
+            {
+                TimingEnds('k');
+                kPressed = !kPressed;
+            }
+        }
+
+        private void KeyboardDown(object sender, KeyEventArgs e)
+        {
+            if (inputModeBool)
+            {
+                if (e.Key == Key.A)
+                {
+                    if (!aPressed)
+                    {
+                        TimingStarts('a');
+                        aPressed = !aPressed;
+                    }
+                }
+                if (e.Key == Key.K)
+                {
+                    if (!kPressed)
+                    {
+                        TimingStarts('k');
+                        kPressed = !kPressed;
+                    }
+                }
+                if (e.Key == Key.Return)
+                {
+                    CloseInputMode();
+                }
+            }
+        }
+
+        private void KeyboardUp(object sender, KeyEventArgs e)
+        {
+            if (inputModeBool)
+            {
+                if (e.Key == Key.A)
+                {
+                    if (aPressed)
+                    {
+                        TimingEnds('a');
+                        aPressed = !aPressed;
+                    }
+                }
+                if (e.Key == Key.K)
+                {
+                    if (kPressed)
+                    {
+                        TimingEnds('k');
+                        kPressed = !kPressed;
+                    }
+                }
+            }
         }
     }
 
