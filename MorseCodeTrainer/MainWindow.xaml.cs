@@ -36,6 +36,7 @@ namespace MorseCodeTrainer
         private Boolean kPressed = false;
         public MainWindow()
         {
+            System.Diagnostics.Debug.Print(((int)'ㅢ').ToString());
             InitializeComponent();
             for (int n = 0; n < WaveOut.DeviceCount; n++)
             {
@@ -104,6 +105,7 @@ namespace MorseCodeTrainer
         {
             alpha_button.Visibility=Visibility.Visible;
             kor_button.Visibility = Visibility.Visible;
+            input_mode_toggle.Content = "Input Mode : ON ";
             toMorse = new UpDownToMorse();
             timeChecker.Stop();
             timeChecker.Reset();
@@ -112,6 +114,7 @@ namespace MorseCodeTrainer
         {
             alpha_button.Visibility = Visibility.Hidden;
             kor_button.Visibility = Visibility.Hidden;
+            input_mode_toggle.Content = "Input Mode : OFF";
             try
             {
                 user_input.Text = toMorse.TranslatedText();

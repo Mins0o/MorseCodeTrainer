@@ -4,13 +4,13 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         mc:Ignorable="d"
-        Title="MainWindow" Height="414.097" Width="504.185" MinHeight="414.097" MinWidth="504.185" MaxHeight="414.097" MaxWidth="504.185" PreviewKeyDown="KeyboardDown" PreviewKeyUp="KeyboardUp">
+        Title="Morse Code Trainer v0.4" Height="414.097" Width="504.185" MinHeight="414.097" MinWidth="504.185" MaxHeight="414.097" MaxWidth="504.185" PreviewKeyDown="KeyboardDown" PreviewKeyUp="KeyboardUp">
     <Grid Margin="0,0,2,0">
         <TextBox Name="user_input" HorizontalAlignment="Left" Height="195" Margin="19,31,0,0" TextWrapping="Wrap" Text="Don't stop me now" VerticalAlignment="Top" Width="257"/>
         <Grid Margin="290,10,10,130">
             <Button x:Name="play_button" Content="Play" HorizontalAlignment="Left" Height="50" Margin="0,56,0,0" VerticalAlignment="Top" Width="98" Click="play"/>
             <Button Content="Save" HorizontalAlignment="Left" Height="50" Margin="0,111,0,0" VerticalAlignment="Top" Width="180" Click="Save"/>
-            <Button Content="Input Mode : Off" HorizontalAlignment="Left" Height="50" Margin="0,166,0,0" VerticalAlignment="Top" Width="180" Click="InputMode"/>
+            <Button Name="input_mode_toggle" Content="Input Mode : Off" HorizontalAlignment="Left" Height="50" Margin="0,166,0,0" VerticalAlignment="Top" Width="180" Click="InputMode"/>
             <Button Content="Stop" HorizontalAlignment="Left" Height="50" Margin="103,56,0,0" VerticalAlignment="Top" Width="77" Click="stopPlaying"/>
             <TextBlock x:Name="speed_indicator" HorizontalAlignment="Left" Margin="18,0,0,0" TextWrapping="Wrap" Text="Playback speed: 5" VerticalAlignment="Top" TextAlignment="Center" Width="144"/>
             <ScrollBar x:Name="speed_scroll" HorizontalAlignment="Left" Margin="82,-56,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.5,0.5" Height="180" Maximum="10" Minimum="1" SmallChange="1" Value="5.5" ValueChanged="updateSpeedIndi" Width="16">
