@@ -3,7 +3,7 @@
 This program is a graphical interface to translate between text and Morse code bidirectionally, that is:  
 1. Translate text to Morse code audio  
 2. Tap in Morse code to produce text  
----
+--- 
 1. Text to Morse code  
   - After filling in the text,   
   - press Play button to play the code in the background.   
