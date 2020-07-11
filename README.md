@@ -1,26 +1,27 @@
 # Morse Code Trainer  
 ![The GUI](https://github.com/Mins0o/MorseCodeTrainer/raw/master/forGitHub/GUI.png "The GUI")  
 This program is a graphical interface to translate between text and Morse code bidirectionally, that is:  
-- Translate text to Morse code audio  
-- Tap in Morse code to produce text  
-
+1. Translate text to Morse code audio  
+2. Tap in Morse code to produce text  
+---
 1. Text to Morse code  
-- After filling in the text,   
-- press Play button to play the code in the background.   
-- You can choose which device to output the sound by using the lower left panel.  
-- Press Save button to save the morse code audio in .wav file.  
-- Playback speed can be modified for play and save audio.  
+  - After filling in the text,   
+  - press Play button to play the code in the background.   
+  - You can choose which device to output the sound by using the lower left panel.  
+  - Press Save button to save the morse code audio in .wav file.  
+  - Playback speed can be modified for play and save audio.  
   
 2. Tap Morse code to text  
-- Get into the Input Mode  
-- tap the buttons and the text will appear when you leave the Input Mode.  
-- or tap 'a' or 'k' key like how you would operate a Morse code switch.  
-- 'a' will produce alphabet letter and 'k' will produce Korean letter.  
-- If you mix them in one letter, it will be translated to ?  
-- The timing window is not so generous, so the input timings for tapping or breaking should be regular.  
-- When you are done tapping, press return(or enter) or press the Input Mode button to exit and produce the text.  
-- The text field will be replaced with your text.  
-
+  - Get into the Input Mode  
+  - tap the buttons and the text will appear when you leave the Input Mode.  
+  - or tap 'a' or 'k' key like how you would operate a Morse code switch.  
+  - 'a' will produce alphabet letter and 'k' will produce Korean letter.  
+  - If you mix them in one letter, it will be translated to ?  
+  - The timing window is not so generous, so the input timings for tapping or breaking should be regular.  
+  - When you are done tapping, press return(or enter) or press the Input Mode button to exit and produce the text.  
+  - The text field will be replaced with your text.  
+---  
+---
 # Source Code  
 ![The Model](https://github.com/Mins0o/MorseCodeTrainer/raw/master/forGitHub/TheModel.png "The Model")  
 There are four classes in total: MorseToSound.cs, BeepGenerator.cs, OutputGenerator.cs, and UpDownToMorse.  
@@ -55,7 +56,7 @@ This class doesn't take any arguments for new instance. A new instance is create
 This class has 2 public methods:  
   - AddToBuffer(long,char,char) - This method takes in the interval between button press/release and adds a letter of Morse code to the buffer '0','1','2' along with the language information. The integer is the interval button the button press/release or release/press. The first char is the type of button manipulation, telling if it was a hold or a release. The last char tells which language input it got.  
   - TranslatedText() - This method returns the Morse -> text translated text of the input. This method is called when user exits the input mode.  
-
+---
 # Future Plan
 With the tap-to-Morse input mode, getting the timings right is being a problem.  When the input is not timed well, the code missing the necessary gap('0') or having additional gap messes up the translation.  
 Currently there are two ways to tackle this problem.  
