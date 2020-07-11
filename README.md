@@ -55,3 +55,10 @@ This class doesn't take any arguments for new instance. A new instance is create
 This class has 2 public methods:  
   - AddToBuffer(long,char,char) - This method takes in the interval between button press/release and adds a letter of Morse code to the buffer '0','1','2' along with the language information. The integer is the interval button the button press/release or release/press. The first char is the type of button manipulation, telling if it was a hold or a release. The last char tells which language input it got.  
   - TranslatedText() - This method returns the Morse -> text translated text of the input. This method is called when user exits the input mode.  
+
+# Future Plan
+With the tap-to-Morse input mode, getting the timings right is being a problem.  When the input is not timed well, the code missing the necessary gap('0') or having additional gap messes up the translation.  
+Currently there are two ways to tackle this problem.  
+- Give user the feedback of until when they should wait in release to register a space('0').
+- Algorithm to correct ill-spaced(opposite of well-spaced) code.  
+This improvement will be done in later future.
