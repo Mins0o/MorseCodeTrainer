@@ -1,5 +1,5 @@
 # Morse Code Trainer  
-![The GUI](https://github.com/Mins0o/MorseCodeTrainer/raw/master/forGitHub/GUI.png "The GUI")  
+![The GUI](https://github.com/Mins0o/MorseCodeTrainer/raw/master/forGitHub/GUI.png "The GUI")![The GUI](https://github.com/Mins0o/MorseCodeTrainer/raw/master/forGitHub/GUI_Input.png "The GUI")  
 This program is a graphical interface to translate between text and Morse code bidirectionally, that is:  
 1. Translate text to Morse code audio  
 2. Tap in Morse code to produce text  
