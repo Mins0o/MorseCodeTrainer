@@ -60,6 +60,6 @@ This class has 2 public methods:
 # Future Plan
 With the tap-to-Morse input mode, getting the timings right is being a problem.  When the input is not timed well, the code missing the necessary gap('0') or having additional gap messes up the translation.  
 Currently there are two ways to tackle this problem.  
-- Give user the feedback of until when they should wait in release to register a space('0').
+- Give user the feedback of when their away time is registered as space('0').(A timer)
 - Algorithm to correct ill-spaced(opposite of well-spaced) code.  
 This improvement will be done in later future.
