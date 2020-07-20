@@ -6,16 +6,16 @@ This program is a graphical interface to translate between text and Morse code b
 --- 
 1. Text to Morse code  
   - After filling in the text,   
-  - press Play button to play the code in the background.   
+    - press Play button to play the code in the background.   
   - You can choose which device to output the sound by using the lower left panel.  
   - Press Save button to save the morse code audio in .wav file.  
   - Playback speed can be modified for play and save audio.  
   
 2. Tap Morse code to text  
   - Get into the Input Mode  
-  - tap the buttons and the text will appear when you leave the Input Mode.  
-  - or tap 'a' or 'k' key like how you would operate a Morse code switch.  
-  - 'a' will produce alphabet letter and 'k' will produce Korean letter.  
+    - tap the buttons and the text will appear when you leave the Input Mode.  
+    - or tap 'a' or 'k' key like how you would operate a Morse code switch.  
+    - 'a' will produce alphabet letter and 'k' will produce Korean letter.  
   - If you mix them in one letter, it will be translated to ?  
   - The timing window is not so generous, so the input timings for tapping or breaking should be regular.  
   - When you are done tapping, press return(or enter) or press the Input Mode button to exit and produce the text.  
