@@ -2,7 +2,7 @@
 ![The GUI](https://github.com/Mins0o/MorseCodeTrainer/raw/master/forGitHub/GUI.png "The GUI")![The GUI](https://github.com/Mins0o/MorseCodeTrainer/raw/master/forGitHub/GUI_Input.png "The GUI")  
 This program is a graphical interface to translate between text and Morse code bidirectionally, that is:  
 1. Translate text to Morse code audio  
-2. Tap in Morse code to produce text  
+2. Tap in Morse code to produce text  (By keyboard or mouse)
 --- 
 1. Text to Morse code  
   - After filling in the text,   
